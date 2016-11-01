@@ -28,12 +28,6 @@ def readOrdersFileIntoDF(filename):
 	# A Sample Line - 2011,1,14,AAPL,Buy,1500)
 	for listFromLine in csv.reader(fr.read().splitlines()):
 		
-		# Stripping off the return line character
-		# orderString=orderString.strip()
-		
-		# Splitting the line and getting a List back
-		# listFromLine = orderString.split(',')
-		
 		# Adding the dates into dtList. 16,00,00 for 1600 hrs
 		dtList.append(dt.datetime(int(listFromLine[0]), int(listFromLine[1]), int(listFromLine[2]), 16, 00, 00))
 		
@@ -70,7 +64,7 @@ def readOrdersFileIntoDF(filename):
 	
 def fetchNYSEData(dt_start, dt_end, ls_symbols):
 	
-    # The Time of Closing is 1600 hrs 
+    # Market closing at 16:00
     dt_timeofday = dt.timedelta(hours=16)
     
     # Get a list of trading days between the start and the end.
